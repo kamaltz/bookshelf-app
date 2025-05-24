@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App</title>
+
+    <!-- Import your JavaScript -->
+    <script defer src="main.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white py-6 text-center">
+      <h1 class="text-4xl font-bold">Bookshelf App</h1>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-8">
+      <!-- Form Menambah Buku -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+          Tambah Buku Baru
+        </h2>
+        <form id="bookForm" class="space-y-4" data-testid="bookForm">
+          <div class="flex flex-col">
+            <label for="bookFormTitle" class="text-lg">Judul</label>
+            <input
+              id="bookFormTitle"
+              type="text"
+              required
+              data-testid="bookFormTitleInput"
+              class="p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="bookFormAuthor" class="text-lg">Penulis</label>
+            <input
+              id="bookFormAuthor"
+              type="text"
+              required
+              data-testid="bookFormAuthorInput"
+              class="p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="bookFormYear" class="text-lg">Tahun</label>
+            <input
+              id="bookFormYear"
+              type="number"
+              required
+              data-testid="bookFormYearInput"
+              class="p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <button
+              id="bookFormSubmit"
+              type="submit"
+              data-testid="bookFormSubmitButton"
+              class="bg-indigo-600 text-white py-2 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300"
+            >
+              Tambahkan Buku
+            </button>
+            <div>
+              <label for="rackSelection" class="text-lg">Pilih Rak Buku</label>
+              <select
+                id="rackSelection"
+                class="p-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              >
+                <option value="false">Belum selesai dibaca</option>
+                <option value="true">Selesai dibaca</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Form Pencarian Buku -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Cari Buku</h2>
+        <form
+          id="searchBook"
+          data-testid="searchBookForm"
+          class="flex space-x-4"
+        >
+          <input
+            id="searchBookTitle"
+            type="text"
+            data-testid="searchBookFormTitleInput"
+            placeholder="Cari Judul Buku..."
+            class="p-2 border border-gray-300 rounded-lg shadow-sm w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <button
+            id="searchSubmit"
+            type="submit"
+            data-testid="searchBookFormSubmitButton"
+            class="bg-indigo-600 text-white py-2 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300"
+          >
+            Cari
+          </button>
+        </form>
+      </section>
+
+      <!-- Rak Buku Belum Selesai Dibaca -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+          Belum selesai dibaca
+        </h2>
+        <div
+          id="incompleteBookList"
+          data-testid="incompleteBookList"
+          class="space-y-6"
+        >
+          <!-- Buku akan ditambahkan secara dinamis di sini -->
+        </div>
+      </section>
+
+      <!-- Rak Buku Selesai Dibaca -->
+      <section>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+          Selesai dibaca
+        </h2>
+        <div
+          id="completeBookList"
+          data-testid="completeBookList"
+          class="space-y-6"
+        >
+          <!-- Buku akan ditambahkan secara dinamis di sini -->
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
